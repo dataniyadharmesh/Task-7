@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.os.Build.VERSION.*;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -28,24 +29,19 @@ import java.util.List;
 import java.lang.String;
 import java.lang.StringBuffer;
 import java.lang.StringBuilder;
+import java.lang.Object;
 
 public class MainActivity extends AppCompatActivity {
     private ListView ls;
     private Post_adapter ad;
     private List<Post> list_items = new ArrayList<Post>();
-    /**
-     * ATTENTION: This was auto-generated to implement the App Indexing API.
-     * See https://g.co/AppIndexing/AndroidStudio for more information.
-     */
-    private GoogleApiClient client;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (Build.VERSION.SDK_INT > 9) {
+     if (android.os.Build.VERSION.SDK_INT > 9) {
             StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
             StrictMode.setThreadPolicy(policy);
         }
@@ -71,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
                 BufferedReader reader = new BufferedReader(new InputStreamReader(stream));
 
                 StringBuffer bf = new StringBuffer();
-                String line = "";
+                String line = " ";
 
                 while ((reader.readLine() != null)) {
                     line = reader.readLine();
